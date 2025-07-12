@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeus's Dynasty: A Mythological Network</title>
+    
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Import D3.js from CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <!-- Google Fonts for ancient Greek aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main container with ancient Greek styling -->
+    <div class="container">
+        <header class="greek-header">
+            <h1>Zeus's Dynasty</h1>
+            <p class="subtitle">A Mythological Network of Divine Relationships</p>
+        </header>
+        
+        <!-- Container for the D3.js network graph -->
+        <div id="myth-network"></div>
+
+        <div class="instructions-container">
+            <p class="instructions">Click on a node to highlight its connections.</p>
+        </div>
+        
+        <!-- Legend for relationship types -->
+        <div class="legend">
+            <h3>Relationship Types</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-line marriage"></div>
+                    <span>Marriage</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line affair"></div>
+                    <span>Affair</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line abduction"></div>
+                    <span>Abduction</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line deception"></div>
+                    <span>Deception</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line parent-of"></div>
+                    <span>Parent-Child</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include the main JavaScript file -->
+    <script src="script.js" defer></script>
+</body>
+</html> 
