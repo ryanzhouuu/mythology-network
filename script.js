@@ -3,8 +3,46 @@
 // Wait for the DOM to be fully loaded before executing any code
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM loaded, initializing D3.js network...");
+
+  // Initialize tab navigation
+  initTabNavigation();
+
+  // Initialize the network visualization
   initNetwork();
 });
+
+/**
+ * Initialize tab navigation functionality
+ */
+function initTabNavigation() {
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabPanels = document.querySelectorAll(".tab-panel");
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetTab = button.getAttribute("data-tab");
+
+      // Remove active class from all buttons and panels
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      tabPanels.forEach((panel) => panel.classList.remove("active"));
+
+      // Add active class to clicked button and corresponding panel
+      button.classList.add("active");
+      document.getElementById(`${targetTab}-tab`).classList.add("active");
+
+      // If switching to network tab, ensure the network is properly sized
+      if (targetTab === "network") {
+        setTimeout(() => {
+          const networkContainer = document.getElementById("myth-network");
+          if (networkContainer && window.d3) {
+            // Trigger a resize event to ensure proper rendering
+            window.dispatchEvent(new Event("resize"));
+          }
+        }, 100);
+      }
+    });
+  });
+}
 
 /**
  * Main function to initialize the mythological network visualization
@@ -81,6 +119,7 @@ async function initNetwork() {
 function formatRelationshipLabel(relationshipType) {
   if (relationshipType === "affair_abduction") return "affair (abduction)";
   if (relationshipType === "affair_deception") return "affair (deception)";
+  if (relationshipType === "parent_of") return "parent-child";
   return relationshipType;
 }
 
@@ -95,12 +134,15 @@ function createD3Network(nodes, edges) {
   const width = container.clientWidth;
   const height = container.clientHeight;
 
-  // Create SVG
+  console.log("Container dimensions:", width, "x", height);
+
+  // Create SVG that fills the entire container
   const svg = d3
     .select("#myth-network")
     .append("svg")
-    .attr("width", width)
-    .attr("height", height)
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("viewBox", `0 0 ${width} ${height}`)
     .style("background", "transparent");
 
   const wrapper = svg.append("g");
@@ -208,10 +250,8 @@ function createD3Network(nodes, edges) {
   // Add hover effects for nodes
   node
     .on("mouseover", function (event, d) {
-      d3.select(this)
-        .select("circle")
-        .style("stroke-width", 4)
-        .style("stroke", "#2c1810");
+      // Let CSS handle the visual effects instead of JavaScript
+      d3.select(this).classed("hovered", true);
 
       tooltip.transition().duration(200).style("opacity", 0.9);
       tooltip
@@ -226,10 +266,8 @@ function createD3Network(nodes, edges) {
         .style("top", event.pageY - 28 + "px");
     })
     .on("mouseout", function (d) {
-      d3.select(this)
-        .select("circle")
-        .style("stroke-width", 2)
-        .style("stroke", "#8b4513");
+      // Remove hover class and let CSS handle the transition
+      d3.select(this).classed("hovered", false);
 
       tooltip.transition().duration(500).style("opacity", 0);
     })
@@ -404,9 +442,9 @@ function getEdgeColor(relationshipType) {
  * @returns {number} Width for the edge
  */
 function getEdgeWidth(relationshipType) {
-  if (relationshipType.includes("marriage")) return 3;
-  if (relationshipType.includes("affair")) return 2;
-  if (relationshipType.includes("parent_of")) return 1.5; // NEW: Thin line for parent-child
+  if (relationshipType.includes("marriage")) return 4;
+  if (relationshipType.includes("affair")) return 3.5;
+  if (relationshipType.includes("parent_of")) return 2.5; // NEW: Thin line for parent-child
 
   return 2;
 }

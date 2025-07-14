@@ -20,43 +20,175 @@
     <!-- Main container with ancient Greek styling -->
     <div class="container">
         <header class="greek-header">
+            <div class="laurel-wreath"></div>
             <h1>Zeus's Dynasty</h1>
             <p class="subtitle">A Mythological Network of Divine Relationships</p>
         </header>
         
-        <!-- Container for the D3.js network graph -->
-        <div id="myth-network"></div>
-
-        <div class="instructions-container">
-            <p class="instructions">Click on a node to highlight its connections.</p>
-        </div>
+        <!-- Tab Navigation System -->
+        <nav class="tab-navigation">
+            <div class="tab-container">
+                <button class="tab-button active" data-tab="network">
+                    <span class="tab-icon">⚡</span>
+                    <span class="tab-text">Network</span>
+                </button>
+                <button class="tab-button" data-tab="commentary">
+                    <span class="tab-icon">📜</span>
+                    <span class="tab-text">Commentary</span>
+                </button>
+            </div>
+        </nav>
         
-        <!-- Legend for relationship types -->
-        <div class="legend">
-            <h3>Relationship Types</h3>
-            <div class="legend-items">
-                <div class="legend-item">
-                    <div class="legend-line marriage"></div>
-                    <span>Marriage</span>
+        <!-- Tab Content Container -->
+        <div class="tab-content">
+            <!-- Network Tab -->
+            <div id="network-tab" class="tab-panel active">
+                <!-- Container for the D3.js network graph -->
+                <div id="myth-network"></div>
+
+                <div class="instructions-container">
+                    <p class="instructions">Click on a node to highlight its connections.</p>
                 </div>
-                <div class="legend-item">
-                    <div class="legend-line affair"></div>
-                    <span>Affair</span>
+                
+                <!-- Legend for relationship types -->
+                <div class="legend">
+                    <h3>Relationship Types</h3>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-line marriage"></div>
+                            <span>Marriage</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-line affair"></div>
+                            <span>Affair</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-line abduction"></div>
+                            <span>Abduction</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-line deception"></div>
+                            <span>Deception</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-line parent-of"></div>
+                            <span>Parent-Child</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="legend-item">
-                    <div class="legend-line abduction"></div>
-                    <span>Abduction</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-line deception"></div>
-                    <span>Deception</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-line parent-of"></div>
-                    <span>Parent-Child</span>
+                
+                <!-- Legend for node types -->
+                <div class="legend">
+                    <h3>Character Types</h3>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="legend-node deity"></div>
+                            <span>Deity</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-node titaness"></div>
+                            <span>Titaness</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-node nymph"></div>
+                            <span>Nymph</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-node mortal"></div>
+                            <span>Mortal</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-node hero"></div>
+                            <span>Hero</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-node demigod"></div>
+                            <span>Demigod</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-node group"></div>
+                            <span>Group</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Commentary Tab -->
+            <div id="commentary-tab" class="tab-panel">
+                <div class="commentary-content">
+                    <div class="commentary-header">
+                        <h2>📜 Commentary</h2>
+                        <p class="commentary-subtitle">By Ryan Zhou (rz6489)</p>
+                    </div>
+                    
+                    <div class="commentary-sections">
+                        <section class="commentary-section">
+                            <h3>🏛️ Project Conception and Development
+                            </h3>
+                            <p>The idea and purpose for this project, "Zeus’s Dynasty" stemmed from a desire to explore the portrayal of Greek mythological relationships. Although lists are informative, they fail to capture the complex, interconnected, and hierarchical nature of these relationships. Mythology is not a static collection of stories but a dynamic system of meaning. I developed web-based visualization to represent this system, where each mythological figure is a "node" and each relationship is an "edge" (or “connection”). </p>
+                            <p>The development process began with data collection where I started by consulting texts like Hesiod’s Theogony for cosmic and divine lineage, and Ovid’s Metamorphoses for many of the mortal affairs, cross-referencing with the comprehensive database at the Theoi Project. The core of the project was to create an application to dive deeper into my central research question: How do the portrayals of Zeus' relationships, including patterns and correlations, reflect the values and worldview of ancient Greek culture?</p>
+                            <p>After completing research for this project, I’ve found that the myths surrounding Zeus's liaisons actually constitute a layered narrative framework that functions as a charter for the Greek worldview. By examining the patterns of his partners and their offspring, we can see how these myths accomplish three key cultural tasks: they establish a cosmic order, they map a perilous divine hierarchy, and they legitimize a deeply patriarchal social structure.
+                            </p>
+                        </section>
+                        
+                        <section class="commentary-section">
+                            <h3>⚡ Titanesses: Creation and Establishment
+                            </h3>
+                            <p>Zeus's earliest relationships are with Titanesses, the generation of deities he overthrew. These unions are best understood as political marriages that consolidate his power and literally give birth to his new cosmos. This pattern directly reflects a cultural value for a structured, divinely-ordained universe that replaced an older, more chaotic one.
+                            </p>
+                            <p>The nature of their offspring is the most telling evidence: they are not heroes or monsters, but powerful, abstract concepts. His union with Themis (Divine Law) produces the Horae (Seasons) and Moirai (Fates), reflecting a set of beliefs where natural and moral order are direct products of divine will. His affair with Mnemosyne (Memory) results in the Muses, placing cultural production under his reign. By fathering these personified concepts, Zeus transforms from a mere victor into a cosmic architect. The connections that lie within these relationships is one of creation and political alliance, reflecting the Greek ideal of a world governed by intelligible principles and order, not just brute force.
+                            </p>
+                        </section>
+                        
+                        <section class="commentary-section">
+                            <h3>🌊 Goddesses & Nymphs: Mapping the Divine Hierarchy
+                            </h3>
+                            <p>Zeus's affairs with fellow immortals reveal a different pattern that speaks to the Greek understanding of power and politics. These secretive relationships almost always incur the wrath of Hera, whose persecution of his lovers maps the internal and often dangerous politics of Olympus. The offspring from these unions are major Olympian deities themselves—Apollo, Artemis, and Hermes, among others—but their mothers' suffering serves a crucial narrative function.
+                            </p>
+                            <p>These stories establish Hera as a formidable power, policing the boundaries of marriage, and demonstrate that even for immortals, proximity to the king is perilous. The fate of Leto, hounded across the earth by Hera and denied a place to give birth, serves as the archetype of this persecution. Similarly, Io, a priestess of Hera, is transformed into a heifer and tormented by a gadfly as a direct punishment for betraying her divine patroness. The nymph Callisto, a follower of Artemis, is turned into a bear. In these cases, the suffering is acute, and the frequent conclusion—transformation into a constellation (Callisto) or eternal wandering before finding refuge (Leto)—reflects a worldview in which divine conflict is ultimately resolved into elements of the universe, providing etiological explanations for the natural world and simultaneously reinforcing the divine order. The affair with the Pleiad Maia offers a subtle contrast; her tryst is successful and covert, producing Hermes without the same degree of persecution, perhaps reflecting her more remote status outside the immediate political sphere of Olympus.
+                            </p>
+                        </section>
+                        
+                        <section class="commentary-section">
+                            <h3>🎭 Mortal Women: Legitimizing the Patriarchal World
+                            </h3>
+                            <p>The most revealing patterns emerge from Zeus's relationships with mortal women, which overwhelmingly reflect and reinforce the patriarchal values of ancient Greek society. The encounters themselves are defined by deception and/or abduction, with Zeus using his divine, unmatched power to disguise himself and/or overwhelm his targets.
+                            </p>
+                            <p>The outcomes of these affairs are remain consistent and powerfully reflective of cultural ideals:
+                            </p>
+                            <p>The Creation of a Male Hero: The union invariably produces a male demigod of immense importance (Heracles, Perseus, Minos). The mortal woman’s primary mythological function is to be a vessel for a divine, male lineage, bringing glory and divine ancestry to a specific city-state. This reflects a culture that prized male lineage and heroic action as the drivers of history.
+                            </p>
+                            <p>The Tragedy of the Mother: The mortal woman’s fate is almost always ruinous. Semele is incinerated, Danaë is cast out to sea, and others are hounded by Hera. This reinforces the unbridgeable chasm between mortals and gods, serving as a potent cautionary tale to avoid challenging the Olympians. Crucially, it legitimizes a social order where the suffering of women is secondary to the creation of a male heroic legacy. The glory of the son is predicated on the tragedy of the mother, a narrative that reinforces a worldview where public, male achievement outweighs private, female suffering.
+                            </p>
+                        </section>
+                        
+                        <section class="commentary-section">
+                            <h3>🔮 Reflections and Takeaways
+                            </h3>
+                            <p>Looking forward, several avenues could expand upon this project's foundation. One option would be to add a "Hera layer," visualizing her retaliations as a separate but interconnected network of interactions. This would graphically represent her role not just as a jealous wife, but as a political agent actively shaping the fates of gods and mortals. Another addition could be expanding the network to include later generations, allowing for an analysis of how divine influence transforms or diminishes over time, and how the legacies of heroes like Heracles or Perseus branch out to shape entire regions of the mythological world.
+                            </p>
+                            <p>Ultimately, "The Zeus Network" demonstrates that the myths of Zeus's lovers function as a comprehensive divine charter for the Greek world. They are a narrative tool for making sense of existence on every level. The unions with Titanesses explain the creation and structure of the cosmos itself. The affairs with goddesses map the political and social order of the divine realm. And the encounters with mortals populate the human world with its heroes and kings, justifying its social structures and gender hierarchies. From the stars in the sky to the gender roles in the home, this network of relationships provided a powerful, divine precedent for the world as the ancient Greeks knew it and a mythological map of their most deeply held values.
+                            </p>
+                        </section>
+                    </div>
+                </div>
+                <!-- Works Cited Section -->
+        <div class="works-cited">
+            <h3>Works Cited</h3>
+            <div class="citations">
+                <p>Atsma, Aaron J. <em>Theoi Project: Greek Mythology</em>. 2000–2025. Accessed July 7, 2025. <a href="https://www.theoi.com/" target="_blank">https://www.theoi.com/</a>.</p>
+                
+                <p>Hesiod. <em>Theogony and Works and Days</em>. Translated by M. L. West, Oxford University Press, 1999.</p>
+                
+                <p>Ovid. <em>The Metamorphoses of Ovid</em>. Translated by Allen Mandelbaum, Houghton Mifflin Harcourt, 1993.</p>
+            </div>
         </div>
+            </div>
+        </div>
+
+        
+        
+        
     </div>
     
     <!-- Include the main JavaScript file -->

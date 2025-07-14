@@ -12,10 +12,13 @@
 
 body {
     font-family: 'Crimson Text', serif;
-    background: linear-gradient(135deg, #f4e4bc 0%, #e6d7a3 50%, #d4c495 100%);
+    background: 
+        linear-gradient(135deg, #f4e4bc 0%, #e6d7a3 50%, #d4c495 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="greek-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M0 10h20M10 0v20" stroke="rgba(139,69,19,0.05)" stroke-width="0.5" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23greek-pattern)"/></svg>');
     color: #2c1810;
     min-height: 100vh;
     position: relative;
+    overflow-x: hidden;
 }
 
 body::before {
@@ -33,7 +36,29 @@ body::before {
     z-index: -1;
 }
 
-/* Container styling */
+/* Greek architectural decorative elements */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, transparent 0%, rgba(218, 165, 32, 0.1) 50%, transparent 100%),
+        linear-gradient(0deg, transparent 0%, rgba(218, 165, 32, 0.1) 50%, transparent 100%);
+    background-size: 200px 200px;
+    pointer-events: none;
+    z-index: -1;
+    animation: subtle-shift 20s ease-in-out infinite;
+}
+
+@keyframes subtle-shift {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(10px, 5px); }
+}
+
+/* Container styling with Greek temple inspiration */
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -41,242 +66,1107 @@ body::before {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-/* Ancient Greek header styling */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 20px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(218, 165, 32, 0.8) 20%, 
+        rgba(255, 215, 0, 1) 50%, 
+        rgba(218, 165, 32, 0.8) 80%, 
+        transparent 100%);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(218, 165, 32, 0.5);
+}
+
+/* Ancient Greek header styling with enhanced architectural elements */
 .greek-header {
     text-align: center;
     margin-bottom: 30px;
-    padding: 30px 20px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 220, 0.9) 100%);
-    border-radius: 15px;
+    padding: 40px 20px 30px;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 220, 0.95) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="meander" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M0 10h5v5h5v-5h5v-5h-5v5h-5v-5z" fill="rgba(139,69,19,0.1)"/></pattern></defs><rect width="100" height="20" fill="url(%23meander)"/></svg>');
+    border-radius: 20px 20px 15px 15px;
     box-shadow: 
-        0 8px 32px rgba(139, 69, 19, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    border: 2px solid rgba(139, 69, 19, 0.3);
+        0 15px 50px rgba(139, 69, 19, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.9),
+        0 0 0 1px rgba(218, 165, 32, 0.3);
+    border: 3px solid rgba(139, 69, 19, 0.4);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    flex-shrink: 0;
+    transform: perspective(1000px) rotateX(2deg);
+    transition: transform 0.3s ease;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
+.greek-header:hover {
+    transform: perspective(1000px) rotateX(0deg);
+}
+
+/* Greek temple pediment effect */
 .greek-header::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #8b4513, #d2691e, #cd853f, #8b4513);
+    height: 8px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #8b4513 10%, 
+        #d2691e 20%, 
+        #ffd700 30%, 
+        #d2691e 40%, 
+        #8b4513 50%, 
+        #d2691e 60%, 
+        #ffd700 70%, 
+        #d2691e 80%, 
+        #8b4513 90%, 
+        transparent 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+/* Decorative columns on header */
+.greek-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: 
+        repeating-linear-gradient(90deg, 
+            transparent 0px, 
+            transparent 19px, 
+            rgba(139, 69, 19, 0.3) 20px, 
+            rgba(139, 69, 19, 0.3) 21px);
+    border-radius: 0 0 15px 15px;
+}
+
+/* Laurel wreath decoration */
+.greek-header .laurel-wreath {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 30px;
+    background: 
+        radial-gradient(ellipse at center, rgba(34, 139, 34, 0.8) 0%, transparent 70%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 30"><path d="M10 15 Q30 5 50 15 Q70 25 90 15 Q110 5 120 15" stroke="rgba(34,139,34,0.6)" stroke-width="2" fill="none"/><circle cx="30" cy="12" r="3" fill="rgba(34,139,34,0.8)"/><circle cx="50" cy="18" r="3" fill="rgba(34,139,34,0.8)"/><circle cx="70" cy="12" r="3" fill="rgba(34,139,34,0.8)"/><circle cx="90" cy="18" r="3" fill="rgba(34,139,34,0.8)"/></svg>');
+    border-radius: 50%;
+    z-index: 2;
 }
 
 .greek-header h1 {
     font-family: 'Cinzel', serif;
-    font-size: 3.5em;
+    font-size: 3.8em;
     font-weight: 700;
-    color: #8b4513;
-    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.3);
-    margin-bottom: 10px;
-    letter-spacing: 2px;
+    background: linear-gradient(45deg, #8b4513, #d2691e, #ffd700, #d2691e, #8b4513);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 3px 3px 6px rgba(139, 69, 19, 0.4);
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    animation: golden-shimmer 3s ease-in-out infinite;
+    position: relative;
+    padding: 0 50px;
+}
+
+@keyframes golden-shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.greek-header h1::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.6em;
+    animation: lightning 2s ease-in-out infinite;
+}
+
+.greek-header h1::after {
+    content: '⚡';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.6em;
+    animation: lightning 2s ease-in-out infinite 1s;
+}
+
+@keyframes lightning {
+    0%, 100% { opacity: 0.3; transform: translateY(-50%) scale(1); }
+    50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
 }
 
 .subtitle {
     font-family: 'Crimson Text', serif;
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-style: italic;
     color: #654321;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding: 10px 40px;
 }
 
-/* Network visualization container */
-#myth-network {
-    flex: 1;
-    width: 100%;
-    height: 70vh;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 220, 0.95) 100%);
-    border-radius: 15px;
-    box-shadow: 
-        0 10px 40px rgba(139, 69, 19, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(139, 69, 19, 0.2);
+.subtitle::before,
+.subtitle::after {
+    content: '❦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    color: #8b4513;
+    opacity: 0.7;
+}
+
+.subtitle::before {
+    left: 0;
+}
+
+.subtitle::after {
+    right: 0;
+}
+
+/* Tab Navigation System */
+.tab-navigation {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.tab-container {
+    display: flex;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 220, 0.95) 100%);
+    border-radius: 15px;
+    padding: 8px;
+    box-shadow: 
+        0 10px 30px rgba(139, 69, 19, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.9),
+        0 0 0 2px rgba(218, 165, 32, 0.3);
+    border: 2px solid rgba(139, 69, 19, 0.4);
     position: relative;
     overflow: hidden;
 }
 
+.tab-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #8b4513 10%, 
+        #d2691e 20%, 
+        #ffd700 30%, 
+        #d2691e 40%, 
+        #8b4513 50%, 
+        #d2691e 60%, 
+        #ffd700 70%, 
+        #d2691e 80%, 
+        #8b4513 90%, 
+        transparent 100%);
+    border-radius: 15px 15px 0 0;
+}
+
+.tab-button {
+    background: transparent;
+    border: none;
+    padding: 15px 25px;
+    margin: 0 5px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #8b4513;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 140px;
+    justify-content: center;
+}
+
+.tab-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(218, 165, 32, 0.1) 0%, 
+        rgba(255, 215, 0, 0.2) 50%, 
+        rgba(218, 165, 32, 0.1) 100%);
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tab-button:hover::before {
+    opacity: 1;
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, 
+        rgba(218, 165, 32, 0.3) 0%, 
+        rgba(255, 215, 0, 0.4) 50%, 
+        rgba(218, 165, 32, 0.3) 100%);
+    color: #2c1810;
+    box-shadow: 
+        0 4px 15px rgba(139, 69, 19, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+.tab-button.active::before {
+    opacity: 1;
+}
+
+.tab-icon {
+    font-size: 1.2em;
+    filter: drop-shadow(0 1px 2px rgba(139, 69, 19, 0.3));
+}
+
+.tab-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* Tab Content */
+.tab-content {
+    flex: 1;
+    position: relative;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Commentary Styles */
+.commentary-content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.commentary-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 220, 0.95) 100%);
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 50px rgba(139, 69, 19, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.9),
+        0 0 0 1px rgba(218, 165, 32, 0.3);
+    border: 2px solid rgba(139, 69, 19, 0.4);
+    position: relative;
+}
+
+.commentary-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #8b4513 10%, 
+        #d2691e 20%, 
+        #ffd700 30%, 
+        #d2691e 40%, 
+        #8b4513 50%, 
+        #d2691e 60%, 
+        #ffd700 70%, 
+        #d2691e 80%, 
+        #8b4513 90%, 
+        transparent 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+.commentary-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    background: linear-gradient(45deg, #8b4513, #d2691e, #ffd700, #d2691e, #8b4513);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    animation: golden-shimmer 3s ease-in-out infinite;
+}
+
+.commentary-subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3em;
+    font-style: italic;
+    color: #8b4513;
+    margin: 0;
+}
+
+.commentary-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.commentary-section {
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 220, 0.95) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 
+        0 10px 30px rgba(139, 69, 19, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.9),
+        0 0 0 1px rgba(218, 165, 32, 0.2);
+    border: 1px solid rgba(139, 69, 19, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.commentary-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(218, 165, 32, 0.8) 50%, 
+        transparent 100%);
+}
+
+.commentary-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 40px rgba(139, 69, 19, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.9),
+        0 0 0 1px rgba(218, 165, 32, 0.3);
+}
+
+.commentary-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #8b4513;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.commentary-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #8b4513, #d2691e, #ffd700);
+    border-radius: 2px;
+}
+
+.commentary-section p {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #2c1810;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.commentary-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Network visualization container with enhanced Greek styling */
+#myth-network {
+    width: 100%;
+    height: 600px;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(245, 245, 220, 0.97) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="marble" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="20" fill="rgba(139,69,19,0.02)"/><circle cx="10" cy="10" r="5" fill="rgba(139,69,19,0.03)"/><circle cx="40" cy="40" r="8" fill="rgba(139,69,19,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23marble)"/></svg>');
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 50px rgba(139, 69, 19, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.9),
+        0 0 0 2px rgba(218, 165, 32, 0.2);
+    border: 3px solid rgba(139, 69, 19, 0.3);
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+#myth-network:hover {
+    box-shadow: 
+        0 20px 60px rgba(139, 69, 19, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.9),
+        0 0 0 2px rgba(218, 165, 32, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Greek key pattern border */
 #myth-network::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #8b4513, transparent);
+    height: 4px;
+    background: 
+        repeating-linear-gradient(90deg, 
+            #8b4513 0px, 
+            #8b4513 10px, 
+            #d2691e 10px, 
+            #d2691e 20px, 
+            #ffd700 20px, 
+            #ffd700 30px, 
+            #d2691e 30px, 
+            #d2691e 40px);
+    border-radius: 20px 20px 0 0;
 }
 
-/* Legend styling */
+/* Corner decorative elements */
+#myth-network::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+/* Enhanced Legend styling with Greek architectural elements */
 .legend {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 220, 0.9) 100%);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.15);
-    border: 1px solid rgba(139, 69, 19, 0.2);
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 220, 0.95) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><defs><pattern id="greek-dots" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="1" fill="rgba(139,69,19,0.1)"/></pattern></defs><rect width="50" height="50" fill="url(%23greek-dots)"/></svg>');
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 
+        0 8px 30px rgba(139, 69, 19, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(139, 69, 19, 0.25);
+    margin-bottom: 25px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.legend:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 40px rgba(139, 69, 19, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Decorative corner elements for legends */
+.legend::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid rgba(218, 165, 32, 0.6);
+    border-left: 2px solid rgba(218, 165, 32, 0.6);
+    border-radius: 5px 0 0 0;
+}
+
+.legend::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid rgba(218, 165, 32, 0.6);
+    border-right: 2px solid rgba(218, 165, 32, 0.6);
+    border-radius: 0 5px 0 0;
 }
 
 .legend h3 {
     font-family: 'Cinzel', serif;
-    font-size: 1.4em;
-    color: #8b4513;
-    margin-bottom: 15px;
+    font-size: 1.5em;
+    background: linear-gradient(45deg, #8b4513, #d2691e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
     text-align: center;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.legend h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b4513, transparent);
 }
 
 .legend-items {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 35px;
     flex-wrap: wrap;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-family: 'Crimson Text', serif;
-    font-size: 1.1em;
+    font-size: 1.15em;
     color: #654321;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.legend-item:hover {
+    background: rgba(218, 165, 32, 0.1);
+    transform: translateX(5px);
+}
+
+.legend-item::before {
+    content: '•';
+    position: absolute;
+    left: -5px;
+    color: #8b4513;
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.legend-item:hover::before {
+    opacity: 1;
 }
 
 .legend-line {
-    width: 30px;
-    height: 3px;
-    border-radius: 2px;
-}
-
-.legend-line.marriage {
-    background: #2e8b57;
-}
-
-.legend-line.affair {
-    background: #dc143c;
-    border-top: 1px dashed #dc143c;
-}
-
-.legend-line.abduction {
-    background: #ff8c00;
-}
-
-.legend-line.deception {
-    background: #9932cc;
-}
-
-.legend-line.parent-of {
-    background: #666666;
-}
-
-/* Node and edge styling for D3 */
-.node {
-    cursor: pointer;
+    width: 35px;
+    height: 4px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
-.node:hover {
+.legend-line:hover {
+    transform: scaleX(1.2);
+}
+
+.legend-line.marriage {
+    background: linear-gradient(90deg, #2e8b57, #3cb371);
+}
+
+.legend-line.affair {
+    background: linear-gradient(90deg, #dc143c, #ff1493);
+    border-top: 2px dashed #dc143c;
+}
+
+.legend-line.abduction {
+    background: linear-gradient(90deg, #ff8c00, #ffa500);
+}
+
+.legend-line.deception {
+    background: linear-gradient(90deg, #9932cc, #ba55d3);
+}
+
+.legend-line.parent-of {
+    background: linear-gradient(90deg, #666666, #808080);
+}
+
+/* Enhanced Node legend styling */
+.legend-node {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid #8b4513;
+    box-shadow: 
+        2px 2px 6px rgba(139, 69, 19, 0.4),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.legend-node:hover {
+    transform: scale(1.2);
+    box-shadow: 
+        3px 3px 8px rgba(139, 69, 19, 0.5),
+        inset 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.legend-node::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.legend-node.deity {
+    background: radial-gradient(circle at 30% 30%, #d2691e, #8b4513);
+}
+
+.legend-node.titaness {
+    background: radial-gradient(circle at 30% 30%, #cd853f, #a0522d);
+}
+
+.legend-node.nymph {
+    background: radial-gradient(circle at 30% 30%, #daa520, #b8860b);
+}
+
+.legend-node.mortal {
+    background: radial-gradient(circle at 30% 30%, #8B4513, #654321);
+}
+
+.legend-node.hero {
+    background: radial-gradient(circle at 30% 30%, #a0522d, #8b4513);
+}
+
+.legend-node.demigod {
+    background: radial-gradient(circle at 30% 30%, #b8860b, #daa520);
+}
+
+.legend-node.group {
+    background: radial-gradient(circle at 30% 30%, #708090, #556b2f);
+}
+
+/* Enhanced Node and edge styling for D3 */
+.node {
+    cursor: pointer;
+    transition: all 0.4s ease;
+    filter: drop-shadow(2px 2px 4px rgba(139, 69, 19, 0.3));
+}
+
+.node:hover,
+.node.hovered {
+    filter: brightness(1.3) drop-shadow(3px 3px 6px rgba(139, 69, 19, 0.5));
+    /* Removed transform: scale(1.1) to prevent conflicts with D3.js */
+}
+
+.node circle {
+    transition: all 0.3s ease;
+}
+
+.node:hover circle,
+.node.hovered circle {
     filter: brightness(1.2);
+    stroke-width: 4px !important;
+    stroke: #2c1810 !important;
 }
 
 .node-text {
     font-family: 'Cinzel', serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     text-anchor: middle;
     pointer-events: none;
     fill: #2c1810;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    text-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.9),
+        0 0 8px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.node:hover .node-text,
+.node.hovered .node-text {
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .link {
     stroke-opacity: 0.8;
-    transition: stroke-opacity 0.3s ease;
+    transition: all 0.4s ease;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 .link:hover {
     stroke-opacity: 1;
-    stroke-width: 3px;
+    stroke-width: 4px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-/* Tooltip styling */
+/* Enhanced Tooltip styling */
 .tooltip {
     position: absolute;
-    background: rgba(44, 24, 16, 0.95);
+    background: 
+        linear-gradient(135deg, rgba(44, 24, 16, 0.98) 0%, rgba(69, 39, 26, 0.98) 100%);
     color: #f4e4bc;
-    padding: 12px 16px;
-    border-radius: 8px;
+    padding: 15px 20px;
+    border-radius: 12px;
     font-family: 'Crimson Text', serif;
     font-size: 14px;
-    line-height: 1.4;
-    max-width: 300px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(139, 69, 19, 0.5);
+    line-height: 1.5;
+    max-width: 320px;
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        0 0 0 2px rgba(218, 165, 32, 0.3);
+    border: 1px solid rgba(139, 69, 19, 0.6);
     pointer-events: none;
     z-index: 1000;
+    backdrop-filter: blur(5px);
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.3s ease;
+    /* Remove the default transform to prevent positioning issues */
+    transform-origin: bottom center;
+}
+
+.tooltip.show {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .tooltip::after {
     content: '';
     position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(44, 24, 16, 0.95) transparent transparent transparent;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    border-radius: 12px 12px 0 0;
 }
 
+/* Enhanced Instructions styling */
 .instructions-container {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 220, 0.9) 100%);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(139, 69, 19, 0.15);
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    position: relative;
+}
+
+.instructions-container::before {
+    content: '💡';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+    50% { opacity: 1; transform: translateY(-50%) scale(1.1); }
 }
 
 .instructions {
     font-family: 'Crimson Text', serif;
     font-size: 18px;
     text-align: center;
+    color: #654321;
+    font-weight: 500;
+    margin-left: 40px;
 }
 
-/* Responsive design */
+/* Enhanced Works Cited Section */
+.works-cited {
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 220, 0.95) 100%);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 
+        0 8px 30px rgba(139, 69, 19, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(139, 69, 19, 0.25);
+    margin-top: 20px;
+    position: relative;
+}
+
+.works-cited::before {
+    content: '📚';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5em;
+    opacity: 0.6;
+}
+
+.works-cited h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5em;
+    background: linear-gradient(45deg, #8b4513, #d2691e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.works-cited h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b4513, transparent);
+}
+
+.citations {
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #654321;
+}
+
+.citations p {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.citations p::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #8b4513;
+    font-weight: bold;
+}
+
+.citations a {
+    color: #8b4513;
+    text-decoration: none;
+    border-bottom: 1px dotted #8b4513;
+    transition: all 0.3s ease;
+}
+
+.citations a:hover {
+    color: #d2691e;
+    border-bottom-color: #d2691e;
+    text-shadow: 0 0 5px rgba(210, 105, 30, 0.3);
+}
+
+/* Responsive design with enhanced Greek elements */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
     }
-    
+
+    .greek-header {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 30px 15px 20px;
+    }
+
     .greek-header h1 {
         font-size: 2.5em;
     }
-    
+
+    .greek-header h1::before,
+    .greek-header h1::after {
+        display: none;
+    }
+
     .subtitle {
         font-size: 1.1em;
+        padding: 0 15px;
     }
-    
-    #myth-network {
-        height: 60vh;
+
+    .subtitle::before,
+    .subtitle::after {
+        display: none;
     }
-    
-    .legend-items {
-        gap: 20px;
+
+    /* Tab Navigation Mobile Styles */
+    .tab-navigation {
+        margin: 20px 20px;
     }
-    
-    .legend-item {
+
+    .tab-container {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .tab-button {
+        min-width: auto;
+        padding: 12px 20px;
         font-size: 1em;
+    }
+
+    .tab-icon {
+        font-size: 1.1em;
+    }
+
+    /* Commentary Mobile Styles */
+    .commentary-content {
+        padding: 10px;
+    }
+
+    .commentary-header {
+        padding: 20px 15px;
+        margin-bottom: 30px;
+    }
+
+    .commentary-header h2 {
+        font-size: 2em;
+    }
+
+    .commentary-subtitle {
+        font-size: 1.1em;
+    }
+
+    .commentary-section {
+        padding: 20px 15px;
+    }
+
+    .commentary-section h3 {
+        font-size: 1.5em;
+    }
+
+    .commentary-section p {
+        font-size: 1em;
+    }
+
+    #myth-network {
+        height: 400px;
+    }
+
+    .legend-items {
+        flex-direction: column;
+    }
+
+    .legend-item {
+        margin-bottom: 10px;
+    }
+
+    .instructions-container::before {
+        display: none;
+    }
+
+    .instructions {
+        font-size: 0.9em;
     }
 }
 
 @media (max-width: 480px) {
+    .greek-header {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 25px 10px 15px;
+    }
+
     .greek-header h1 {
         font-size: 2em;
     }
-    
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    /* Tab Navigation Small Mobile Styles */
+    .tab-navigation {
+        margin: 15px 10px;
+    }
+
+    .tab-container {
+        padding: 8px;
+    }
+
+    .tab-button {
+        padding: 10px 15px;
+        font-size: 0.9em;
+        gap: 5px;
+    }
+
+    .tab-icon {
+        font-size: 1em;
+    }
+
+    /* Commentary Small Mobile Styles */
+    .commentary-header h2 {
+        font-size: 1.8em;
+    }
+
+    .commentary-subtitle {
+        font-size: 1em;
+    }
+
+    .commentary-section {
+        padding: 15px 10px;
+    }
+
+    .commentary-section h3 {
+        font-size: 1.3em;
+    }
+
+    .commentary-section p {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+
     .legend-items {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        gap: 5px;
+    }
+
+    .legend-item {
+        font-size: 0.9em;
     }
 } 
